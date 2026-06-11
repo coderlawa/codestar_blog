@@ -1,0 +1,1 @@
+console.log("My Life has just started!");
