@@ -3,11 +3,15 @@ from django.views import generic
 from .models import Post
 
 # Create your views here.
+
+# this is a class-based view 
 class PostList(generic.ListView):
     queryset = Post.objects.all()
     template_name = "blog/index.html"
     paginate_by = 6
 
+
+# this is a function-based view
 def post_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
