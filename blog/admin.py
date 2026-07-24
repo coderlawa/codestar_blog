@@ -12,4 +12,12 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 # Register your models here.
-admin.site.register(Comment)
+# admin.site.register(Comment)
+
+@admin.register(Comment)
+class CommentAdmin(SummernoteModelAdmin):
+
+    list_display = ('body', 'author', 'approved', 'post', 'created_on')
+    search_fields = ['post__title', 'author__username', 'body']
+    list_filter = ('approved', 'created_on')
+    summernote_fields = ('body',)
